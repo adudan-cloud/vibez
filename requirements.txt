@@ -1,0 +1,5 @@
+Django>=5.0,<6.0
+Django-allauth
+Django-environ
+phonenumberslite
+Django-phonenumber-field
