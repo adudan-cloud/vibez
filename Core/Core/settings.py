@@ -19,11 +19,11 @@ INSTALLED_APPS =  [
 	# third-party
     'django.contrib.sites',
     'allauth',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers',
-    'allauth.socialaccount.providers.instagram',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.twitter',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers',
+    # 'allauth.socialaccount.providers.instagram',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.twitter',
 	# custom TikTok provider
     'phonenumber_field',
 
