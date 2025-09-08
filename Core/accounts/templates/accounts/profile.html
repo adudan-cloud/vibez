@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}"> <!-- Link to your CSS -->
+    <script src="{% static 'accounts/js/scripts.js' %}" defer></script>
+</head>
+<body class="container py-5">
+    <h2>Your Profile</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</body>
+</html>

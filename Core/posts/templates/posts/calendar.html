@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Events Calendar</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+    <style>
+        .calendar-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            padding: 30px;
+        }
+        .calendar-header {
+            text-align: center;
+            color: #008000;
+            margin-bottom: 30px;
+        }
+        .event-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .event-card {
+            background: #e9f7ef;
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .event-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .event-date {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .event-title {
+            font-size: 1.2rem;
+            color: #008000;
+            margin-bottom: 6px;
+        }
+        .event-location {
+            color: #2980b9;
+            font-size: 0.95rem;
+        }
+        .event-description {
+            margin-top: 8px;
+            color: #333;
+        }
+        .event-form {
+            margin: 40px 0 20px 0;
+            padding: 24px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        @media (max-width: 600px) {
+            .calendar-container { padding: 10px; }
+            .event-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <h1 class="calendar-header">Community Events Calendar</h1>
+        <form method="post" enctype="multipart/form-data" class="event-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Post Event</button>
+        </form>
+        <h2>Upcoming & Past Events</h2>
+        <div class="event-list">
+            {% for event in events %}
+            <div class="event-card">
+                {% if event.image %}
+                    <img src="{{ event.image.url }}" alt="Event image">
+                {% endif %}
+                <div class="event-date">{{ event.date|date:"M d, Y" }}</div>
+                <div class="event-title">{{ event.title }}</div>
+                <div class="event-location">{{ event.location }}</div>
+                <div class="event-description">{{ event.description }}</div>
+                <div style="font-size:0.85rem;color:#888;margin-top:8px;">Posted by {{ event.user.username }} on {{ event.created_at|date:"M d, Y H:i" }}</div>
+            </div>
+            {% empty %}
+            <p>No events yet. Be the first to post!</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

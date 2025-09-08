@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}" />
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0; padding: 0;
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #e9f7ef 0%, #fff 100%);
+        }
+        .sidebar {
+            width: 270px;
+            background: linear-gradient(180deg, #008000 60%, #fff 100%);
+            color: #fff;
+            padding: 25px 20px;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.07);
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .menu-item {
+            margin: 12px 0;
+            cursor: pointer;
+            padding: 12px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1rem;
+            background: linear-gradient(90deg, #000 50%, #fff 50%);
+            color: #fff;
+            transition: background 0.3s, color 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .menu-item:hover {
+            background: linear-gradient(90deg, #ff0000 50%, #fff 50%);
+            color: #008000;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 40px 30px;
+            background: #fff;
+            border-radius: 20px;
+            margin: 30px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        .content h1 {
+            font-size: 2.2rem;
+            color: #008000;
+            margin-bottom: 18px;
+        }
+        .content p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .menu-section {
+            margin-bottom: 30px;
+        }
+        .menu-section hr {
+            border: none;
+            border-top: 1px solid #fff;
+            margin: 20px 0;
+            opacity: 0.5;
+        }
+        .menu-links a.menu-item {
+            display: block;
+            margin: 8px 0;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .menu-links a.menu-item.signup {
+            background-color: #27ae60;
+        }
+        .menu-links a.menu-item.login {
+            background-color: #2980b9;
+        }
+        .menu-links a.menu-item.register {
+            background-color: #5022e6;
+        }
+        .menu-links a.menu-item.feed {
+            background-color: #46ad44;
+        }
+        .menu-links a.menu-item.calendar {
+            background-color: #16a02b;
+        }
+        .menu-links a.menu-item:hover {
+            filter: brightness(1.1);
+        }
+        @media (max-width: 900px) {
+            .sidebar { width: 100px; padding: 10px; }
+            .content { margin: 10px; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar" aria-label="Main Navigation">
+      <div style="margin-bottom:30px ;color:#fff; font-size:1.5rem; font-weight:700; text-align:center;">
+           WELCOME TO VIBEZ TRIBE
+      </div>
+        <div class="menu-section":>
+      
+          
+            <h2>Main Menu</h2>
+            <div class="menu-item">Referral Programme</div>
+            <div class="menu-item">Following</div>
+            <div class="menu-item">Campaigns</div>
+            <div class="menu-item">Volunteer</div>
+            <div class="menu-item">Jobs</div>
+            <div class="menu-item">Tokens</div>
+            <div class="menu-item">Events & rallies</div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Community</h2>
+            <div class="menu-item">Politics</div>
+            <div class="menu-item">Economy</div>
+        </div>
+
+        <hr />
+
+        <div class="menu-section menu-links">
+            <h2>User Access</h2>
+            <a href="{% url 'signup' %}" class="menu-item signup">Sign Up</a>
+            <a href="{% url 'login' %}" class="menu-item login">Login</a>
+            <a href="{% url 'register' %}" class="menu-item register">Register with Us</a>
+        </div>
+
+        <hr />
+
+        <div class="menu-section menu-links">
+            <h2>Extras</h2>
+            <a href="{% url 'feed' %}" class="menu-item feed">Community Feed</a>
+            <a href="{% url 'calendar' %}" class="menu-item calendar">Events Calendar</a>
+        </div>
+    </nav>
+
+    <main class="content">
+        <h1>Welcome to the Dashboard</h1>
+        <p>This is your central hub. Use the menu to explore features, join campaigns, and connect with the community!</p>
+    </main>
+
+    <script>
+        // Example JavaScript for menu interactions
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', event => {
+                // alert(You clicked on ${item.textContent});
+            });
+        });
+    </script>
+
+</body>
+</html>

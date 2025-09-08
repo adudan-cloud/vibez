@@ -1,0 +1,46 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Vibe Tribe{% endblock %}</title>
+  {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+<script src="{% static 'accounts/js/scripts.js' %}"></script>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="{% url 'home' %}">
+        <div class="brand-mark">VT</div>
+        <div class="brand-name">Vibe Tribe</div>
+      </a>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="{% url 'login' %}">Login</a>
+        <a class="btn btn-ghost" href="{% url 'signup' %}">Sign Up</a>
+        <a class="btn btn-primary" href="{% url 'register' %}">Register</a>
+        <a class="btn btn-ghost" href="{% url 'about' %}">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>© <span id="year"></span> Vibe Tribe. All rights reserved.</div>
+      <div>
+        <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'script.js' %}"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

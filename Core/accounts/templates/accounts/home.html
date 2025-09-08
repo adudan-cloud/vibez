@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to Vibe Tribe</title>
+  <meta name="description" content="Vibe Tribe — community platform for action, events, and participation." />
+  <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+  <script src="{% static 'accounts/js/scripts.js' %}"></script>
+</head>
+<body>
+  <!-- Top navigation -->
+  <header class="topbar" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="Vibe Tribe home">
+        <div class="brand-mark" aria-hidden="true">VT</div>
+        <div class="brand-name">Vibe Tribe</div>
+      </a>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="{% url 'login' %}">Login</a>
+        <a class="btn btn-ghost" href="{% url 'signup' %}">Sign Up</a>
+        <a class="btn btn-ghost" href="{% url 'calendar' %}">calenda</a>
+        <a class="btn btn-ghost" href="{% url 'feed' %}">feed</a>
+        <a class="btn btn-primary" href="{% url 'register' %}">Register</a>
+        <a class="btn btn-ghost" href="{% url 'about'%}">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero section -->
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="welcome">
+      <div class="hero-card" role="region" aria-label="Welcome">
+        <div class="hero-inner">
+          <span class="kicker">Community platform. any question contact us at <www class="infovibeztribe com"></www></span>
+          <h1 id="welcome">Welcome to Vibez Tribe</h1>
+          <p>Connect, participate, and make a difference. Track events and rallies, volunteer your time, and support initiatives that matter.</p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" type="button" onclick="go('#dashboard')">Open dashboard</button>
+            <button class="btn btn-ghost" type="button" onclick="go('#events')">See events</button>
+          </div>
+        </div>
+        <div class="stats" role="group" aria-label="At a glance">
+          <div class="stat">
+            <div class="num" aria-label="Active members">12,480</div>
+            <div class="label">Active members</div>
+          </div>
+          <div class="stat">
+            <div class="num" aria-label="Upcoming events">36</div>
+            <div class="label">Upcoming events</div>
+          </div>
+          <div class="stat">
+            <div class="num" aria-label="Volunteers this month">842</div>
+            <div class="label">Volunteers this month</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side" aria-labelledby="updates">
+        <h2 id="updates" style="margin:0 0 10px;font-size:1.05rem;">Updates</h2>
+        <div class="notice" role="note" aria-live="polite">
+          <h3>New referral rewards</h3>
+          <p>Invite friends to Vibe Tribe and unlock supporter badges and event perks.</p>
+        </div>
+        <div class="notice" role="note">
+          <h3>Volunteer drive</h3>
+          <p>Weekend opportunities added for field coordination and digital outreach.</p>
+        </div>
+        <div class="notice" role="note">
+          <h3>Rallies calendar</h3>
+          <p>Check locations, safety info, and timings for the next two weeks.</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="section" aria-labelledby="dash-title">
+      <h2 id="dash-title">Dashboard</h2>
+      <div class="grid">
+        <a class="card" href="#join" aria-label="Register or join Vibe Tribe">
+          <span class="pill">Getting started</span>
+          <h3>Register / Join us</h3>
+          <p>Create your profile to access events, volunteering, and referrals.</p>
+          <span class="go">Get started →</span>
+        </a>
+        <a class="card" href="#referrals" aria-label="Referral program">
+          <span class="pill">Growth</span>
+          <h3>Referral program</h3>
+          <p>Share your link, track sign-ups, and earn community perks.</p>
+          <span class="go">View referrals →</span>
+        </a>
+        <a class="card" href="#volunteer" aria-label="Volunteer">
+          <span class="pill">Give time</span>
+          <h3>Volunteer</h3>
+          <p>Find roles that match your skills and schedule.</p>
+          <span class="go">See roles →</span>
+        </a>
+        <a class="card" href="#donate" aria-label="Donate or contribute">
+          <span class="pill">Support</span>
+          <h3>Donate / Contribute</h3>
+          <p>Back initiatives securely. Every contribution moves us forward.</p>
+          <span class="go">Contribute now →</span>
+        </a>
+        <a class="card" href="#events" aria-label="Events and rallies">
+          <span class="pill">Attend</span>
+          <h3>Events & rallies</h3>
+          <p>Browse the calendar, RSVP, and get reminders.</p>
+          <span class="go">Open calendar →</span>
+        </a>
+        <a class="card" href="#my-dashboard" aria-label="My dashboard">
+          <span class="pill">You</span>
+          <h3>My dashboard</h3>
+          <p>View your activity, badges, RSVPs, and settings.</p>
+          <span class="go">Go to profile →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="foot">
+      <div>© <span id="year"></span> Vibez Tribe. All rights reserved.</div>
+      <div>
+        <a href="#privacy">Privacy</a> ·
+        <a href="#terms">Terms</a> ·
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function go(id) {
+      const el = document.querySelector(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

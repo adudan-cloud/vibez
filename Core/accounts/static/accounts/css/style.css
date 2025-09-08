@@ -1,0 +1,91 @@
+/* style.css */
+
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #008000 50%, #ffffff 50%);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigation styles */
+nav {
+    background: linear-gradient(90deg, #ff0000 50%, #ffffff 50%);
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+/* Headings in nav */
+nav h2 {
+    color: #008000;
+    margin-top: 0;
+}
+
+/* Lists in nav */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(90deg, #000 50%, #fff 50%);
+    color: #fff;
+}
+
+nav ul li:last-child {
+    border-bottom: none;
+}
+
+/* Main content area */
+main {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #008000 50%, #fff 50%);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Notification styles */
+.notification-area {
+  margin: 0 auto 20px auto;
+  max-width: 400px;
+  text-align: center;
+}
+.notification {
+  background: #27ae60;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  animation: fadeIn 0.7s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
