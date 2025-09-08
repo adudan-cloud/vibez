@@ -18,7 +18,8 @@ INSTALLED_APPS =  [
 
 	# third-party
     'django.contrib.sites',
-    'allauth',
+    # 'allauth',
+    # 'allauth.account',
     # 'allauth.socialaccount',
     # 'allauth.socialaccount.providers',
     # 'allauth.socialaccount.providers.instagram',
